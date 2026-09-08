@@ -11,6 +11,13 @@ jobs:
     # this step will automatically clone the code of current branch into the runner
       - name: clone the code
         uses: actions/checkout@v7
+
+    # this step will intall python
+
+      - name: set up python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
         
     # this step will install the linter tool
       - name: install linter
