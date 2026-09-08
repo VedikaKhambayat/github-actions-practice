@@ -1,5 +1,5 @@
 # this is python file
-# flask app
+# this is flask app
 from flask import Flask, render_template
 app = Flask(__name__)
 
