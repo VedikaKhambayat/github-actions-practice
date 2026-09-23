@@ -30,3 +30,4 @@ jobs:
             else
             echo "File does not exist!"
             exit 1
+            fi
