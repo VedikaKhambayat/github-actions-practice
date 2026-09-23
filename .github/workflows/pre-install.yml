@@ -1,0 +1,25 @@
+name: Pre-install
+
+on: 
+  workflow_dispatch: 
+
+jobs:
+  check-tools:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check installed tools
+        run: |
+
+          echo "Docker version:"
+          docker --version
+
+          echo "Python version:"
+          python --version
+
+          echo "Node version:"
+          node --version
+
+          echo "Git version:"
+          git --version
+
+          
