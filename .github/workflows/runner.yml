@@ -1,0 +1,35 @@
+name: Multi os 
+
+on: 
+  workflow_dispatch: 
+
+jobs:
+
+  ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show ubuntu runners details
+        run: |
+          echo "OS: Ubuntu"
+          echo "Hostname: $hostname"
+          echo "Current user: $(whoami)"
+
+  windows:
+    runs-on: windows-latest
+    steps:
+      - name: Show window runner details
+        shell: pwsh
+        run: |
+          Write-Host "OS: Windows"
+          Write-Host "Hostname: $env:COMPUTERNAME"
+          Write-Host "Current User: $env:USERNAME"
+
+  macos:
+    runs-on: macos-latest
+    steps:
+      - name: Show macos runners details
+        run: |
+          echo "OS: macOS"
+          echo "Hostname: $(hostname)"
+          echo "Current User: $(Whoami)"
+        
