@@ -1,0 +1,32 @@
+name: Self-hosted
+on: 
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: self-hosted
+
+    steps:
+      - name: Print Hostname
+        run: |
+          echo "Hostname"
+          hostname
+
+      - name: Print Working Directory
+        run: |
+          echo "Working directory"
+          pwd
+
+      - name: Create a file
+        run: |
+          echo "Created by Github Actions" > runner-test.txt
+
+      - name: verify file
+        run: |
+           if [ -f runner-test.txt ]; then
+            echo "File exists!"
+            ls -l runner-test.txt
+            cat runner-test.txt
+            else
+            echo "File does not exist!"
+            exit 1
