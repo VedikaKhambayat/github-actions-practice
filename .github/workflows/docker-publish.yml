@@ -1,5 +1,5 @@
 # Day 45 Docker workflow test
-name: Docker image build and push 
+name: Docker image build and push -45
 
 on: 
   push: 
