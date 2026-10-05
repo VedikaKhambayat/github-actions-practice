@@ -24,15 +24,16 @@ jobs:
 
       - name: Tag and push image
         run: |
-          SHORT_SHA=$(echo $GITHUB_SHA | cut -c1-7)
+         SHORT_SHA=$(echo "$GITHUB_SHA" | cut -c1-7)
 
-          docker tag github-actions-practice:latest \
-            ${{ secrets.DOCKER_USERNAME }}/github-actions-practice:latest
+         docker tag github-actions-practice:latest ${{ secrets.DOCKER_USERNAME }}/github-actions-practice:latest
 
-          docker tag github-actions-practice:latest \
-            ${{ secrets.DOCKER_USERNAME }}/github-actions-practice:sha-$SHORT_SHA
+         docker tag github-actions-practice:latest ${{ secrets.DOCKER_USERNAME }}/github-actions-practice:sha-$SHORT_SHA
 
-          docker push ${{ secrets.DOCKER_USERNAME }}/github-actions-practice:latest
+         docker push ${{ secrets.DOCKER_USERNAME }}/github-actions-practice:latest
+
+         docker push ${{ secrets.DOCKER_USERNAME }}/github-actions-practice:sha-$SHORT_SHA
+         docker push ${{ secrets.DOCKER_USERNAME }}/github-actions-practice:latest
 
           docker push ${{ secrets.DOCKER_USERNAME }}/github-actions-practice:sha-$SHORT_SHA
           
